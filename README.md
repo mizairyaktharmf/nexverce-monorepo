@@ -721,4 +721,4 @@ Powered by **NexCode Nova**
 
 **These repositories are NOT visible on GitHub publicly.** Access is restricted to authorized team members only.
 
-For access requests, contact: **admin@nexverce.com**
+For access requests, contact: **mizairyakthar@nexverce.com**
