@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexverce Block Editor - Complete Training Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        .cover {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -60px -60px 60px -60px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .cover h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cover p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+
+        .version {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 32px;
+            margin: 50px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 24px;
+            margin: 30px 0 15px 0;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .danger {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .block-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .block-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .block-icon {
+            font-size: 32px;
+        }
+
+        .block-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .block-description {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .when-to-use {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .quick-ref {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .quick-ref h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .example {
+            background: #e7f3ff;
+            border: 2px dashed #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .example-title {
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .tip {
+            background: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .tip::before {
+            content: "💡 TIP: ";
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc li {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick Reference Table Styles */
+        .quick-ref table {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .quick-ref tbody {
+            color: white;
+        }
+
+        /* Final Page Styles */
+        .final-page {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .final-page h2 {
+            border: none;
+            color: #667eea;
+            font-size: 42px;
+        }
+
+        .final-page-subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-top: 30px;
+        }
+
+        .final-checklist {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .final-checklist h3 {
+            color: white;
+            margin: 0 0 15px 0;
+        }
+
+        .final-checklist p {
+            margin: 10px 0;
+        }
+
+        .final-footer {
+            margin-top: 50px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 40px;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- COVER PAGE -->
+        <div class="cover">
+            <h1>📝 Nexverce Block Editor</h1>
+            <p>Complete Training Guide for Content Creators</p>
+            <div class="version">Version 1.0 - January 2026</div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="toc">
+            <h2>📑 Table of Contents</h2>
+            <ul>
+                <li><a href="#intro">1. Introduction</a></li>
+                <li><a href="#getting-started">2. Getting Started</a></li>
+                <li><a href="#basic-workflow">3. Basic Workflow</a></li>
+                <li><a href="#all-blocks">4. Complete Block Reference</a></li>
+                <li><a href="#best-practices">5. Best Practices</a></li>
+                <li><a href="#common-mistakes">6. Common Mistakes to Avoid</a></li>
+                <li><a href="#templates">7. Quick Templates</a></li>
+                <li><a href="#troubleshooting">8. Troubleshooting</a></li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 1. INTRODUCTION -->
+        <h2 id="intro">1. Introduction</h2>
+
+        <p>Welcome to the Nexverce Block Editor! This powerful tool allows you to create beautiful, professional blog posts and product pages without any coding knowledge.</p>
+
+        <div class="success">
+            <strong>What You'll Learn:</strong><br>
+            ✅ How to add and manage content blocks<br>
+            ✅ When to use each block type<br>
+            ✅ Creating professional blog posts and product reviews<br>
+            ✅ Tips for faster content creation
+        </div>
+
+        <h3>Why Use the Block Editor?</h3>
+        <ul>
+            <li><strong>No Coding Required:</strong> Click and type to create content</li>
+            <li><strong>Professional Results:</strong> Pre-designed blocks that look great</li>
+            <li><strong>Flexible:</strong> Drag and drop to reorder blocks</li>
+            <li><strong>Consistent:</strong> All content follows the same professional style</li>
+        </ul>
+
+        <div class="page-break"></div>
+
+        <!-- 2. GETTING STARTED -->
+        <h2 id="getting-started">2. Getting Started</h2>
+
+        <h3>Accessing the Editor</h3>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Login to Admin Panel:</strong> Go to your admin dashboard at <code>localhost:5173</code> or your admin URL
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Choose Content Type:</strong>
+            <ul>
+                <li>Click "Create Blog Page" for blog articles</li>
+                <li>Click "Create Product Post" for product reviews/deals</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Fill Basic Information:</strong>
+            <ul>
+                <li>Title (required)</li>
+                <li>Category (required)</li>
+                <li>Slug (required - use "Generate Slug" button)</li>
+                <li>Reading Time (e.g., 5 for 5 minutes)</li>
+                <li>Author Name (your name)</li>
+            </ul>
+        </div>
+
+        <h3>Understanding the Interface</h3>
+
+        <div class="info">
+            <strong>The editor has 2 main sections:</strong><br><br>
+            <strong>📌 Left Sidebar:</strong> Contains all available blocks you can add<br>
+            <strong>📄 Main Area:</strong> Where your content appears
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 3. BASIC WORKFLOW -->
+        <h2 id="basic-workflow">3. Basic Workflow</h2>
+
+        <h3>How to Add a Block</h3>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            <strong>Find the block</strong> in the left sidebar (use search if needed)
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <strong>Click the block</strong> to add it to your content
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <strong>Edit the content</strong> by clicking inside the block
+        </div>
+
+        <h3>How to Reorder Blocks</h3>
+
+        <p>Simply <strong>drag and drop</strong> blocks using the grip handle (⋮⋮) on the left side of each block.</p>
+
+        <h3>How to Delete a Block</h3>
+
+        <p>Click the <strong>🗑️ Delete button</strong> at the top-right corner of each block.</p>
+
+        <h3>How to Duplicate a Block</h3>
+
+        <p>Click the <strong>📋 Duplicate button</strong> at the top-right corner to create a copy.</p>
+
+        <h3>📦 How to Collapse/Expand Blocks</h3>
+
+        <div class="success">
+            <strong>NEW FEATURE!</strong> Save time managing multiple blocks!
+        </div>
+
+        <p><strong>Collapse Individual Blocks:</strong></p>
+        <p>Click the <strong>▲ button</strong> at the top-right corner of any block to minimize it. This hides the content but keeps the block in place. Click <strong>▼</strong> to expand it again.</p>
+
+        <div class="example">
+            <strong>When to use:</strong> When you have many blocks and want to focus on editing one specific block.
+        </div>
+
+        <p><strong>Collapse/Expand ALL Blocks at Once:</strong></p>
+
+        <div class="step">
+            <span class="step-number">1</span>
+            Look for the <strong>purple control bar</strong> at the top showing "📦 X Blocks"
+        </div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            Click <strong>"▲ Collapse All"</strong> to minimize all blocks instantly
+        </div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            Click <strong>"▼ Expand All"</strong> to expand all blocks instantly
+        </div>
+
+        <div class="tip">
+            <strong>Pro Tip:</strong> Use "Collapse All" to see your content structure at a glance, then expand only the blocks you need to edit!
+        </div>
+
+        <div class="tip">
+            Save your work frequently! Click "💾 Save Draft" to avoid losing content.
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 4. COMPLETE BLOCK REFERENCE -->
+        <h2 id="all-blocks">4. Complete Block Reference</h2>
+
+        <h3>📄 Content Blocks</h3>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📌</span>
+                <span class="block-name">Heading</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Create section titles and subtitles<br>
+                <strong>Options:</strong> H1, H2, H3, H4 sizes, alignment, color
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Main article title (H1)<br>
+                ✅ Section headings (H2)<br>
+                ✅ Sub-sections (H3, H4)
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📝</span>
+                <span class="block-name">Paragraph</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Regular body text<br>
+                <strong>Options:</strong> Simple text editor
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Main article content<br>
+                ✅ Explanations and descriptions<br>
+                ✅ Introductions
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📄</span>
+                <span class="block-name">Text Block</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Advanced text with formatting<br>
+                <strong>Options:</strong> Bold, italic, links, lists, alignment
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ When you need formatted text<br>
+                ✅ Text with links<br>
+                ✅ Bulleted or numbered lists
+            </div>
+            <div class="example">
+                <div class="example-title">Example Use:</div>
+                <strong>Formatting toolbar options:</strong><br>
+                • <strong>Bold</strong> - Make text stand out<br>
+                • <em>Italic</em> - Emphasize words<br>
+                • <u>Underline</u> - Highlight important info<br>
+                • Link - Add clickable links<br>
+                • Lists - Create bullet or numbered lists
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📋</span>
+                <span class="block-name">List</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Create bullet or numbered lists<br>
+                <strong>Options:</strong> Add/remove items, change style
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Feature lists<br>
+                ✅ Step-by-step instructions<br>
+                ✅ Benefits or advantages
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3>💰 Affiliate Blocks (For Product Reviews)</h3>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">💵</span>
+                <span class="block-name">Pricing Box</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Display product price with CTA button<br>
+                <strong>Options:</strong> Price, currency, button text, link
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product review pages<br>
+                ✅ Deal announcements<br>
+                ✅ Price comparisons
+            </div>
+            <div class="example">
+                <div class="example-title">Example Setup:</div>
+                • Price: <code>$49.99</code><br>
+                • Button Text: <code>Get This Deal</code><br>
+                • Link: Your affiliate link
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">⚖️</span>
+                <span class="block-name">Pros & Cons</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> List advantages and disadvantages<br>
+                <strong>Options:</strong> Add multiple pros and cons
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product reviews<br>
+                ✅ Comparison articles<br>
+                ✅ Honest evaluations
+            </div>
+            <div class="tip">
+                Always include both pros AND cons for credibility. Even great products have minor drawbacks!
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">⭐</span>
+                <span class="block-name">Rating</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Give star ratings to products<br>
+                <strong>Options:</strong> 1-5 stars, custom text
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product reviews<br>
+                ✅ Service reviews<br>
+                ✅ Quality assessments
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">🏆</span>
+                <span class="block-name">Badge</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Highlight special status or awards<br>
+                <strong>Options:</strong> Text, color, style
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ "Editor's Choice" badges<br>
+                ✅ "Best Value" labels<br>
+                ✅ Award highlights
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📊</span>
+                <span class="block-name">Stats</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Display important numbers/statistics<br>
+                <strong>Options:</strong> Number, label, description
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product specifications<br>
+                ✅ Performance metrics<br>
+                ✅ Key numbers
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📊</span>
+                <span class="block-name">Comparison Table</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Compare multiple products side-by-side<br>
+                <strong>Options:</strong> Add rows/columns, customize headers
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product comparisons<br>
+                ✅ Pricing tiers<br>
+                ✅ Feature comparisons
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3>🎯 Interactive Blocks</h3>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">❓</span>
+                <span class="block-name">FAQ</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Answer common questions<br>
+                <strong>Options:</strong> Add multiple Q&A pairs
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ End of blog posts<br>
+                ✅ Product information pages<br>
+                ✅ Common customer questions
+            </div>
+            <div class="tip">
+                Use FAQs to address concerns and reduce customer support questions!
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">🔘</span>
+                <span class="block-name">CTA Button</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Call-to-action button for conversions<br>
+                <strong>Options:</strong> Button text, link, color, size
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Affiliate links<br>
+                ✅ Newsletter signups<br>
+                ✅ Product purchases<br>
+                ✅ Contact forms
+            </div>
+            <div class="example">
+                <div class="example-title">Good Button Text Examples:</div>
+                ✅ "Get This Deal Now"<br>
+                ✅ "Try Free for 30 Days"<br>
+                ✅ "Learn More"<br>
+                ❌ Avoid: "Click Here" (too generic)
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">✨</span>
+                <span class="block-name">Feature List</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Highlight key features with icons<br>
+                <strong>Options:</strong> Title, description, icon for each feature
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product features<br>
+                ✅ Service benefits<br>
+                ✅ Key highlights
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📋</span>
+                <span class="block-name">Table</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Display data in table format<br>
+                <strong>Options:</strong> Add rows/columns, headers
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Pricing plans<br>
+                ✅ Specifications<br>
+                ✅ Data presentation
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3>🎨 Layout Blocks</h3>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">🎭</span>
+                <span class="block-name">Hero Section</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Eye-catching top section<br>
+                <strong>Options:</strong> Title, subtitle, button, background
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ At the top of important pages<br>
+                ✅ Landing pages<br>
+                ✅ Special announcements
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">▦</span>
+                <span class="block-name">Two Column</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Split content into 2 columns<br>
+                <strong>Options:</strong> Left and right content areas
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Image + text layout<br>
+                ✅ Before/after comparisons<br>
+                ✅ Side-by-side information
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">ℹ️</span>
+                <span class="block-name">Info Box</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Highlighted information boxes<br>
+                <strong>Options:</strong> Warning, info, success, error styles
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Important notes<br>
+                ✅ Warnings<br>
+                ✅ Tips and tricks<br>
+                ✅ Special announcements
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">➖</span>
+                <span class="block-name">Divider</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Visual separator between sections<br>
+                <strong>Options:</strong> Style, thickness, color
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Between major sections<br>
+                ✅ To break up long content<br>
+                ✅ Visual organization
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">⬜</span>
+                <span class="block-name">Spacer</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Add vertical space<br>
+                <strong>Options:</strong> Height adjustment
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Add breathing room<br>
+                ✅ Improve readability<br>
+                ✅ Separate content visually
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3>🖼️ Media Blocks</h3>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">🖼️</span>
+                <span class="block-name">Image</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Add images to your content<br>
+                <strong>Options:</strong> Upload image, add caption, alt text, alignment
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product photos<br>
+                ✅ Screenshots<br>
+                ✅ Infographics<br>
+                ✅ Visual examples
+            </div>
+            <div class="tip">
+                Always add ALT TEXT for SEO and accessibility!
+            </div>
+        </div>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">🎥</span>
+                <span class="block-name">Video</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Embed YouTube or Vimeo videos<br>
+                <strong>Options:</strong> Video URL, autoplay, controls
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Product demos<br>
+                ✅ Tutorial videos<br>
+                ✅ Reviews<br>
+                ✅ Explanations
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h3>🔧 Utility Blocks</h3>
+
+        <div class="block-card">
+            <div class="block-header">
+                <span class="block-icon">📑</span>
+                <span class="block-name">Table of Contents</span>
+            </div>
+            <div class="block-description">
+                <strong>Purpose:</strong> Auto-generate clickable table of contents<br>
+                <strong>Options:</strong> Auto-detect headings
+            </div>
+            <div class="when-to-use">
+                <strong>When to use:</strong><br>
+                ✅ Long articles (1500+ words)<br>
+                ✅ Tutorial guides<br>
+                ✅ Comprehensive reviews<br>
+                ✅ How-to articles
+            </div>
+            <div class="tip">
+                Place this near the top of your article, after the introduction!
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 5. BEST PRACTICES -->
+        <h2 id="best-practices">5. Best Practices</h2>
+
+        <h3>📝 Writing Content</h3>
+
+        <div class="success">
+            <strong>DO:</strong><br>
+            ✅ Use clear, simple language<br>
+            ✅ Break text into short paragraphs (3-4 lines max)<br>
+            ✅ Use headings to organize content<br>
+            ✅ Add images every 300-400 words<br>
+            ✅ Include FAQs at the end
+        </div>
+
+        <div class="danger">
+            <strong>DON'T:</strong><br>
+            ❌ Write walls of text<br>
+            ❌ Skip headings<br>
+            ❌ Forget to add images<br>
+            ❌ Use too many different fonts/colors<br>
+            ❌ Leave blocks empty
+        </div>
+
+        <h3>🎨 Design Tips</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Best Practice</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Headings</td>
+                    <td>Use H2 for main sections, H3 for subsections</td>
+                </tr>
+                <tr>
+                    <td>Images</td>
+                    <td>Use high-quality images, compress before upload</td>
+                </tr>
+                <tr>
+                    <td>Spacing</td>
+                    <td>Add spacer blocks between major sections</td>
+                </tr>
+                <tr>
+                    <td>Colors</td>
+                    <td>Stick to brand colors (purple gradient)</td>
+                </tr>
+                <tr>
+                    <td>Buttons</td>
+                    <td>Use clear, action-oriented text</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>⚡ Speed & SEO</h3>
+
+        <ul>
+            <li><strong>Optimize Images:</strong> Compress images before uploading (use TinyPNG.com)</li>
+            <li><strong>Alt Text:</strong> Always add descriptive alt text to images</li>
+            <li><strong>Reading Time:</strong> Fill in the reading time field (helps SEO)</li>
+            <li><strong>Author Name:</strong> Add your name (builds trust)</li>
+            <li><strong>Meta Description:</strong> Use the AI SEO generator for blog posts</li>
+        </ul>
+
+        <div class="page-break"></div>
+
+        <!-- 6. COMMON MISTAKES -->
+        <h2 id="common-mistakes">6. Common Mistakes to Avoid</h2>
+
+        <h3>❌ Mistake #1: Too Much Text, No Images</h3>
+        <div class="danger">
+            <strong>Problem:</strong> Long paragraphs without visual breaks make content hard to read.
+        </div>
+        <div class="success">
+            <strong>Solution:</strong> Add an image block every 300-400 words. Use spacers and dividers.
+        </div>
+
+        <h3>❌ Mistake #2: Forgetting to Fill Author Name</h3>
+        <div class="danger">
+            <strong>Problem:</strong> Content looks less trustworthy without author attribution.
+        </div>
+        <div class="success">
+            <strong>Solution:</strong> Always fill in "Author Name" field before publishing.
+        </div>
+
+        <h3>❌ Mistake #3: Not Using Headings</h3>
+        <div class="danger">
+            <strong>Problem:</strong> Content is hard to scan and bad for SEO.
+        </div>
+        <div class="success">
+            <strong>Solution:</strong> Use Heading blocks (H2, H3) to organize your content into clear sections.
+        </div>
+
+        <h3>❌ Mistake #4: Empty Blocks</h3>
+        <div class="danger">
+            <strong>Problem:</strong> Leaving empty blocks creates ugly gaps.
+        </div>
+        <div class="success">
+            <strong>Solution:</strong> Delete any blocks you're not using. Click the 🗑️ button.
+        </div>
+
+        <h3>❌ Mistake #5: Too Many CTAs</h3>
+        <div class="danger">
+            <strong>Problem:</strong> Too many buttons overwhelm readers.
+        </div>
+        <div class="success">
+            <strong>Solution:</strong> Use 1-2 CTA buttons maximum per article.
+        </div>
+
+        <h3>❌ Mistake #6: Not Saving Drafts</h3>
+        <div class="danger">
+            <strong>Problem:</strong> Losing all your work if browser crashes.
+        </div>
+        <div class="success">
+            <strong>Solution:</strong> Click "💾 Save Draft" every 10-15 minutes while writing.
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 7. QUICK TEMPLATES -->
+        <h2 id="templates">7. Quick Templates</h2>
+
+        <h3>📰 Blog Post Template</h3>
+        <div class="example">
+            <strong>Recommended block order:</strong><br><br>
+            1. <strong>Heading</strong> (H1) - Article title<br>
+            2. <strong>Image</strong> - Hero image<br>
+            3. <strong>Paragraph</strong> - Introduction (2-3 paragraphs)<br>
+            4. <strong>Table of Contents</strong> (if article is long)<br>
+            5. <strong>Heading</strong> (H2) - First section<br>
+            6. <strong>Paragraph</strong> - Content<br>
+            7. <strong>Image</strong> - Supporting image<br>
+            8. <strong>Heading</strong> (H2) - Second section<br>
+            9. <strong>Paragraph</strong> - More content<br>
+            10. <strong>FAQ</strong> - Common questions<br>
+            11. <strong>CTA Button</strong> - Call to action
+        </div>
+
+        <h3>🛍️ Product Review Template</h3>
+        <div class="example">
+            <strong>Recommended block order:</strong><br><br>
+            1. <strong>Heading</strong> (H1) - Product name<br>
+            2. <strong>Image</strong> - Product photo<br>
+            3. <strong>Rating</strong> - Your star rating<br>
+            4. <strong>Badge</strong> - "Editor's Choice" (if applicable)<br>
+            5. <strong>Paragraph</strong> - Quick overview<br>
+            6. <strong>Pricing Box</strong> - Price + CTA<br>
+            7. <strong>Heading</strong> (H2) - "Key Features"<br>
+            8. <strong>Feature List</strong> - Main features<br>
+            9. <strong>Heading</strong> (H2) - "Pros & Cons"<br>
+            10. <strong>Pros & Cons</strong> - Honest evaluation<br>
+            11. <strong>Heading</strong> (H2) - "Detailed Review"<br>
+            12. <strong>Paragraph</strong> + <strong>Images</strong> - In-depth review<br>
+            13. <strong>Heading</strong> (H2) - "Specifications"<br>
+            14. <strong>Table</strong> - Tech specs<br>
+            15. <strong>FAQ</strong> - Common questions<br>
+            16. <strong>CTA Button</strong> - Final call to action
+        </div>
+
+        <h3>📊 Comparison Article Template</h3>
+        <div class="example">
+            <strong>Recommended block order:</strong><br><br>
+            1. <strong>Heading</strong> (H1) - "Product A vs Product B"<br>
+            2. <strong>Paragraph</strong> - Introduction<br>
+            3. <strong>Comparison Table</strong> - Side-by-side comparison<br>
+            4. <strong>Heading</strong> (H2) - "Product A Review"<br>
+            5. <strong>Image</strong> + <strong>Paragraph</strong> - Product A details<br>
+            6. <strong>Pros & Cons</strong> - Product A<br>
+            7. <strong>Heading</strong> (H2) - "Product B Review"<br>
+            8. <strong>Image</strong> + <strong>Paragraph</strong> - Product B details<br>
+            9. <strong>Pros & Cons</strong> - Product B<br>
+            10. <strong>Heading</strong> (H2) - "Final Verdict"<br>
+            11. <strong>Paragraph</strong> - Conclusion<br>
+            12. <strong>CTA Button</strong> - Recommendation
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 8. TROUBLESHOOTING -->
+        <h2 id="troubleshooting">8. Troubleshooting</h2>
+
+        <h3>🔧 Common Issues & Solutions</h3>
+
+        <h4>Problem: Block won't delete</h4>
+        <p><strong>Solution:</strong> Refresh the page and try again. Make sure you're clicking the 🗑️ button, not the duplicate button.</p>
+
+        <h4>Problem: Can't drag blocks</h4>
+        <p><strong>Solution:</strong> Make sure you're grabbing the grip handle (⋮⋮) on the left side of the block.</p>
+
+        <h4>Problem: Image won't upload</h4>
+        <p><strong>Solution:</strong></p>
+        <ul>
+            <li>Check file size (max 5MB recommended)</li>
+            <li>Use JPG or PNG format</li>
+            <li>Make sure you have internet connection</li>
+            <li>Try compressing the image first</li>
+        </ul>
+
+        <h4>Problem: Content not saving</h4>
+        <p><strong>Solution:</strong></p>
+        <ul>
+            <li>Check your internet connection</li>
+            <li>Make sure you're logged in</li>
+            <li>Try clicking "Save Draft" again</li>
+            <li>Copy your content to a text file as backup</li>
+        </ul>
+
+        <h4>Problem: Preview looks different from live site</h4>
+        <p><strong>Solution:</strong> This is normal. The preview is simplified. Always check the published page to see final result.</p>
+
+        <h4>Problem: Can't find a specific block</h4>
+        <p><strong>Solution:</strong> Use the search box at the top of the left sidebar to find blocks by name.</p>
+
+        <div class="page-break"></div>
+
+        <h3>📞 Need More Help?</h3>
+
+        <div class="info">
+            <strong>Contact Support:</strong><br><br>
+            📧 Email: <code>contact@nexverce.com</code><br>
+            💬 Slack: #content-team channel<br>
+            📚 Documentation: Check the admin panel help section
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- QUICK REFERENCE CARD -->
+        <div class="quick-ref">
+            <h3>⚡ Quick Reference Card</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>How To Do It</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Add a block</td>
+                        <td>Click the block in the left sidebar</td>
+                    </tr>
+                    <tr>
+                        <td>Delete a block</td>
+                        <td>Click the 🗑️ button on the block</td>
+                    </tr>
+                    <tr>
+                        <td>Reorder blocks</td>
+                        <td>Drag using the ⋮⋮ handle</td>
+                    </tr>
+                    <tr>
+                        <td>Collapse/expand block</td>
+                        <td>Click the ▲/▼ button on the block</td>
+                    </tr>
+                    <tr>
+                        <td>Collapse ALL blocks</td>
+                        <td>Click "▲ Collapse All" in purple bar</td>
+                    </tr>
+                    <tr>
+                        <td>Expand ALL blocks</td>
+                        <td>Click "▼ Expand All" in purple bar</td>
+                    </tr>
+                    <tr>
+                        <td>Duplicate a block</td>
+                        <td>Click the 📋 button on the block</td>
+                    </tr>
+                    <tr>
+                        <td>Save draft</td>
+                        <td>Click "💾 Save Draft" button</td>
+                    </tr>
+                    <tr>
+                        <td>Publish</td>
+                        <td>Click "🚀 Publish" button</td>
+                    </tr>
+                    <tr>
+                        <td>Schedule post</td>
+                        <td>Set date/time and click "⏰ Schedule"</td>
+                    </tr>
+                    <tr>
+                        <td>Generate slug</td>
+                        <td>Click "🔤 Generate Slug" button</td>
+                    </tr>
+                    <tr>
+                        <td>Auto SEO</td>
+                        <td>Click "⚡ Auto Generate SEO" (blogs only)</td>
+                    </tr>
+                    <tr>
+                        <td>Upload image</td>
+                        <td>Click "Choose File" in image block</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- FINAL PAGE -->
+        <div class="final-page">
+            <h2>You're Ready! 🎉</h2>
+            <p class="final-page-subtitle">
+                Start creating amazing content with the Nexverce Block Editor
+            </p>
+            <div class="final-checklist">
+                <h3>Remember:</h3>
+                <p>✅ Save drafts frequently</p>
+                <p>✅ Use headings to organize content</p>
+                <p>✅ Add images regularly</p>
+                <p>✅ Fill in Author Name and Reading Time</p>
+                <p>✅ Use Collapse All to see your content structure</p>
+                <p>✅ Preview before publishing</p>
+            </div>
+            <p class="final-footer">
+                © 2026 Nexverce - Block Editor Training Guide v1.1
+            </p>
+        </div>
+    </div>
+</body>
+</html>
