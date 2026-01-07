@@ -42,11 +42,12 @@ Nexverce is a full-stack affiliate marketing and content management platform tha
 - 📊 **Analytics & Tracking** - Real-time analytics with country/device tracking
 - 🔔 **Real-Time Notifications** - Socket.IO powered notification system
 - 📋 **Task Management** - Complete task system with assignments and permissions
-- 🔗 **LinkedIn Integration** - Auto-post content to LinkedIn organization page
+- 📱 **Telegram Integration** - Post to Telegram channel with multiple images (album support)
+- 🔗 **LinkedIn Integration** - Auto-post content to LinkedIn with AI-generated captions
 - 📧 **Newsletter Management** - Email subscription and bulk operations
 - 💼 **Career Portal** - Job postings with application tracking
 - 🎯 **Referral System** - Affiliate link request and approval workflow
-- 🤖 **AI-Powered Features** - OpenAI integration for SEO and content generation
+- 🤖 **AI-Powered Features** - OpenAI integration for SEO, captions, and content generation
 
 ---
 
@@ -71,7 +72,8 @@ Nexverce is a full-stack affiliate marketing and content management platform tha
 ├─────────────────────────────────────────────────────────────┤
 │                   External Services                         │
 ├─────────────────────────────────────────────────────────────┤
-│  MongoDB Atlas │ Cloudinary │ OpenAI │ LinkedIn API        │
+│  MongoDB Atlas │ Cloudinary │ OpenAI │ Telegram Bot API │  │
+│  LinkedIn API │ Socket.IO Server │ Cron Jobs Scheduler      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
